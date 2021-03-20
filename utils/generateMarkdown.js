@@ -48,7 +48,7 @@ function renderLicenseSection(data) {
 // if we have a license, adds the relevant section body
 function renderLicenseSectionBody(data) {
   if (data !== "None") {
-    return `This software is distributed with ${data}`;
+    return `This software is distributed with the ${data} license`;
   } else {
     return "";
   }
