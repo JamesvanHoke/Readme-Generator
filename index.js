@@ -60,7 +60,7 @@ function runPrompts() {
   inquirer.prompt(userQuestions).then((data) => {
     const generatedMD = generateMarkdown(data);
 
-    fs.writeFile("README.md", generatedMD, (err) =>
+    fs.writeFile("./output/README.md", generatedMD, (err) =>
       err
         ? console.log(err)
         : console.log("Successfully generated your Readme!")
