@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JamesvanHoke/Readme-Generator/issues"
   },
-  "homepage": "https://github.com/JamesvanHoke/Readme-Generator#readme"
+  "homepage": "https://github.com/JamesvanHoke/Readme-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
 }
