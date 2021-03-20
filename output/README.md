@@ -2,7 +2,7 @@
 # Readme Generator
          
 ## Description
-Generate a readme from template by answering simple user prompts via the terminal.
+Generate a readme from template by answering simple user prompts via the terminal
 
 ## Table of Contents
 
@@ -30,10 +30,10 @@ N/A
 ```
 
 ## Contribute
-Fork the repo and submit a pull request. 
+Fork the repo and submit a pull request 
 
 ## Questions
 If you have any questions about this project contact me through my Github [JamesvanHoke](https://github.com/JamesvanHoke) or through my email [james.vanhoke@yahoo.com](james.vanhoke@yahoo.com). 
 
 ## License
-This software is distributed with MIT
+This software is distributed with the MIT license
