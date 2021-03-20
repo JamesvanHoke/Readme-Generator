@@ -1,10 +1,4 @@
-let badge = "";
-let licenseLink = "";
-let licenseSection = "";
-let licenseSectionBody = "";
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-
+// Generates a badge that matches our license, or an empty string if we don't have one.
 function renderLicenseBadge(data) {
   switch (data) {
     case "GPL":
@@ -26,32 +20,45 @@ function renderLicenseBadge(data) {
       badge =
         "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
       break;
-  }
-  return badge;
+    case "None":
+      badge= ""
+      break;
+  } return badge
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+
+//if we have a license, adds the relevant link to our table of contents, else an empty string
 function renderLicenseLink(data) {
-  let licenseLink = "* [License](#license)";
-  return licenseLink;
-}
-
-function renderLicenseSection(data) {
-  let licenseSection = "## License";
-  let licenseSectionBody = `This software is distributed with the ${data} license`
-  return licenseSection, licenseSectionBody
-}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  if (data.license !== "None") {
-    renderLicenseBadge(data.license);
-    renderLicenseLink(data.license);
-    renderLicenseSection(data.license);
+  if (data !== "None") {
+    return "* [License](#license)";
+  } else {
+    return "";
   }
-  const generatedMD = 
-`${badge}
+}
+
+// if we have a license, adds the relevant section header
+function renderLicenseSection(data) {
+  console.log(data)
+  if (data !== "None") {
+    return "## License";
+  } else {
+    return "";
+  }
+}
+
+// if we have a license, adds the relevant section body
+function renderLicenseSectionBody(data) {
+  if (data !== "None") {
+    return `This software is distributed with ${data}`;
+  } else {
+    return "";
+  }
+}
+
+// plugs all of our data into our template.
+function generateMarkdown(data) {
+
+  return `${renderLicenseBadge(data.license)}
 # ${data.projectTitle}
          
 ## Description
@@ -64,7 +71,7 @@ ${data.projDesc}
 * [Testing](#testing)
 * [Contribute](#contribute)
 * [Questions](#questions)
-${licenseLink}
+${renderLicenseLink(data.license)}
 
 ## Installation
 ${data.installDesc}
@@ -79,11 +86,14 @@ ${data.test}
 ${data.contribution} 
 
 ## Questions
-If you have any questions about the application contact me through my Github <a href="https://github.com/${data.gitHubUsername}">${data.gitHubUsername} or through my email ${data.email}. 
-${licenseSection}
-${licenseSectionBody}
+If you have any questions about the application contact me through my Github @${
+    data.gitHubUsername
+  } or through my email ${data.email}. 
+
+${renderLicenseSection(data.license)}
+${renderLicenseSectionBody(data.license)}
 `;
-  return generatedMD;
 }
 
+//exports the main function.
 module.exports = generateMarkdown;
