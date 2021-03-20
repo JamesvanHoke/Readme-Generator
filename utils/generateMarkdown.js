@@ -38,7 +38,6 @@ function renderLicenseLink(data) {
 
 // if we have a license, adds the relevant section header
 function renderLicenseSection(data) {
-  console.log(data)
   if (data !== "None") {
     return "## License";
   } else {
@@ -74,21 +73,26 @@ ${data.projDesc}
 ${renderLicenseLink(data.license)}
 
 ## Installation
+\`\`\`
 ${data.installDesc}
+\`\`\`
 
 ## Usage
 ${data.usage}
 
 ## Testing
+
+To run tests, please execute the following command:
+
+\`\`\`
 ${data.test}
+\`\`\`
 
 ## Contribute
 ${data.contribution} 
 
 ## Questions
-If you have any questions about the application contact me through my Github @${
-    data.gitHubUsername
-  } or through my email ${data.email}. 
+If you have any questions about this project contact me through my Github [${data.gitHubUsername}](https://github.com/${data.gitHubUsername}) or through my email [${data.email}](${data.email}). 
 
 ${renderLicenseSection(data.license)}
 ${renderLicenseSectionBody(data.license)}
